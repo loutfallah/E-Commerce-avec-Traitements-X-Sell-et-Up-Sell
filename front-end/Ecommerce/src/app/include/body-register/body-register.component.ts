@@ -9,8 +9,8 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class BodyRegisterComponent implements OnInit {
   loginForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
+    username: ['loutfallah', Validators.required],
+    password: ['1234', Validators.required]
   });
   registerForm = this.formBuilder.group({
     username: ['', Validators.required],

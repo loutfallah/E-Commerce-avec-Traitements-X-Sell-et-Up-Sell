@@ -9,18 +9,21 @@ import { ChekoutComponent } from './pages/chekout/chekout.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AddProduitComponent } from './pages/add-produit/add-produit.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'produit', component: ProduitDetailsComponent },
+  { path: '', component: CategoryComponent },
+  { path: 'produit/:id', component: ProduitDetailsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'panier', component: PanierComponent },
-  { path: 'category', component: CategoryComponent },
+  { path: 'category/:id', component: CategoryComponent },
   { path: 'chekout', component: ChekoutComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'add-produit', component: AddProduitComponent, canActivate:[AuthGuard]}
   
 ];
 

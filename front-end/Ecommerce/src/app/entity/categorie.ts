@@ -1,10 +1,14 @@
 export class Categorie {
     
-    categorie_id: number;
+    id?: number;
     lable: string;
+    parent?: Categorie;
 
-    constructor(categorie_id: number, lable: string){
-        this.categorie_id = categorie_id;
+    
+    
+    constructor(id?: number, lable?: string,parent?: Categorie){
+        this.id = id;
         this.lable = lable;
+        this.parent = parent;
     }
 }

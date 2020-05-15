@@ -9,10 +9,10 @@
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                <li class="list-inline-item"><a routerLink="/crisis-center" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                <li class="list-inline-item"><a routerLink="/register">Register</a></li>
+                <!-- <li class="list-inline-item"><a routerLink="/crisis-center" data-toggle="modal" data-target="#login-modal">Login</a></li> -->
+                <li class="list-inline-item" *ngIf="!_loginSRV.loggedIn()"><a routerLink="/register">Registe Or Login</a></li>
                 <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-                <li class="list-inline-item"><a href="#">Recently viewed</a></li>
+                <li class="list-inline-item" style="cursor:pointer" *ngIf="_loginSRV.loggedIn()"><a (click)="_loginSRV.logoutUser()" href="#">Lougout</a></li>
               </ul>
             </div>
           </div>
@@ -54,8 +54,8 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-              <li class="nav-item dropdown menu-large"><a routerLink="/category" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
+             
+              <!-- <li class="nav-item dropdown menu-large"><a routerLink="/category" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
@@ -105,8 +105,8 @@
                     </div>
                   </li>
                 </ul>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+              </li> -->
+              <li class="nav-item"><a href="category/5" class="nav-link">Categories</a></li>
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->

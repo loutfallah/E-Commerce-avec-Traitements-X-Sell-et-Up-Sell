@@ -4,7 +4,7 @@ import { MatMenuModule} from '@angular/material/menu';
 
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,13 @@ import { BodyHomeComponent } from './include/body-home/body-home.component';
 import { BodyCategoryComponent } from './include/body-category/body-category.component';
 import { BodyRegisterComponent } from './include/body-register/body-register.component';
 import { BodyProduitComponent } from './include/body-produit/body-produit.component';
+import { TokenIterceptorServiceService } from './service/token-iterceptor-service.service';
+import { AddProduitComponent } from './pages/add-produit/add-produit.component';
+import { AddProduitBodyComponent } from './include/add-produit-body/add-produit-body.component';
+import { SideBarCateComponent } from './include/side-bar-cate/side-bar-cate.component';
+import { AuthGuard } from './auth.guard';
+import { SideBarProfilComponent } from './include/side-bar-profil/side-bar-profil.component';
+import { OrderProfilComponent } from './include/order-profil/order-profil.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +48,12 @@ import { BodyProduitComponent } from './include/body-produit/body-produit.compon
     BodyHomeComponent,
     BodyCategoryComponent,
     BodyRegisterComponent,
-    BodyProduitComponent
+    BodyProduitComponent,
+    AddProduitComponent,
+    AddProduitBodyComponent,
+    SideBarCateComponent,
+    SideBarProfilComponent,
+    OrderProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +66,13 @@ import { BodyProduitComponent } from './include/body-produit/body-produit.compon
     
     
   ],
-  providers: [],
+  providers: [AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:  TokenIterceptorServiceService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
